@@ -19,6 +19,7 @@ abstract class Person {
 }
 
 class Teacher extends Person {
+    private static instance: Teacher;
     explainJob() {
         console.log(`I am a teacher and I teach ${this.subject}`);
     }
@@ -34,13 +35,20 @@ class Teacher extends Person {
         }
         this._subject = value;
     }
-    constructor(name: string, age: number, private _subject: string) {
+    // constructorをprivateにすることでシングルトンパターンを実装
+    private constructor(name: string, age: number, private _subject: string) {
         super(name, age); // 継承元のconstructorに相当するsuperが必要
+    }
+    static getInstance() {
+        if (Teacher.instance) return Teacher.instance;
+        Teacher.instance = new Teacher('Quill', 38, 'Math');
+        return Teacher.instance;
     }
     // greetingメソッド
     greeting() {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
     }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
-teacher.greeting();
+const teacher = Teacher.getInstance();
+const teacher2 = Teacher.getInstance();
+console.log(teacher, teacher2);

@@ -21,6 +21,7 @@ class Person {
 }
 Person.species = 'Homo sapiens';
 class Teacher extends Person {
+    // constructorをprivateにすることでシングルトンパターンを実装
     constructor(name, age, _subject) {
         super(name, age); // 継承元のconstructorに相当するsuperが必要
         this._subject = _subject;
@@ -40,10 +41,17 @@ class Teacher extends Person {
         }
         this._subject = value;
     }
+    static getInstance() {
+        if (Teacher.instance)
+            return Teacher.instance;
+        Teacher.instance = new Teacher('Quill', 38, 'Math');
+        return Teacher.instance;
+    }
     // greetingメソッド
     greeting() {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
     }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
-teacher.greeting();
+const teacher = Teacher.getInstance();
+const teacher2 = Teacher.getInstance();
+console.log(teacher, teacher2);
