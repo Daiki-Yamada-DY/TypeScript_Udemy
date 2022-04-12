@@ -1,6 +1,6 @@
 "use strict";
 class Person {
-    // 初期化の処理を省略する記法
+    // readonly修飾子を使用した場合class内外関係なくプロパティを書き換えることができない。
     constructor(name, age) {
         this.name = name;
         this.age = age;

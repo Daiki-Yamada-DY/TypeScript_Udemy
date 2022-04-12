@@ -1,6 +1,6 @@
 class Person {
-    // 初期化の処理を省略する記法
-    constructor(public name: string, private age: number) {
+    // readonly修飾子を使用した場合class内外関係なくプロパティを書き換えることができない。
+    constructor(public readonly name: string, private age: number) {
     }
     incrementAge() {
         this.age += 1;
