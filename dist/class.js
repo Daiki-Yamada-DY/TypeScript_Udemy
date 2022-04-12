@@ -16,6 +16,7 @@ class Person {
     // greetingメソッド
     greeting() {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`); // バッククォートに注意
+        this.explainJob();
     }
 }
 Person.species = 'Homo sapiens';
@@ -23,6 +24,9 @@ class Teacher extends Person {
     constructor(name, age, _subject) {
         super(name, age); // 継承元のconstructorに相当するsuperが必要
         this._subject = _subject;
+    }
+    explainJob() {
+        console.log(`I am a teacher and I teach ${this.subject}`);
     }
     get subject() {
         if (!this._subject) {
@@ -41,5 +45,5 @@ class Teacher extends Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
     }
 }
-console.log(Person.species);
-console.log(Person.isAdult(38));
+const teacher = new Teacher('Quill', 38, 'Math');
+teacher.greeting();
