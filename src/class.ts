@@ -1,10 +1,6 @@
 class Person {
-    name: string; // nameプロパティ
-    private age: number;
-
-    constructor(initName: string, initAge: number) {
-        this.name = initName;
-        this.age = initAge;
+    // 初期化の処理を省略する記法
+    constructor(public name: string, private age: number) {
     }
     incrementAge() {
         this.age += 1;

@@ -1,8 +1,9 @@
 "use strict";
 class Person {
-    constructor(initName, initAge) {
-        this.name = initName;
-        this.age = initAge;
+    // 初期化の処理を省略する記法
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
     incrementAge() {
         this.age += 1;
