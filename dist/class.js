@@ -14,9 +14,21 @@ class Person {
     }
 }
 class Teacher extends Person {
-    constructor(name, age, subject) {
+    constructor(name, age, _subject) {
         super(name, age); // 継承元のconstructorに相当するsuperが必要
-        this.subject = subject;
+        this._subject = _subject;
+    }
+    get subject() {
+        if (!this._subject) {
+            throw new Error('There is no subject.');
+        }
+        return this._subject;
+    }
+    set subject(value) {
+        if (!value) {
+            throw new Error('There is no subject.');
+        }
+        this._subject = value;
     }
     // greetingメソッド
     greeting() {
@@ -24,4 +36,6 @@ class Teacher extends Person {
     }
 }
 const teacher = new Teacher('Quill', 38, 'Math');
+teacher.subject = 'Music';
+console.log(teacher.subject);
 teacher.greeting();
