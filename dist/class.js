@@ -5,6 +5,11 @@ class Person {
         this.name = name;
         this.age = age;
     }
+    static isAdult(age) {
+        if (age > 17)
+            return true;
+        return false;
+    }
     incrementAge() {
         this.age += 1;
     }
@@ -13,6 +18,7 @@ class Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`); // バッククォートに注意
     }
 }
+Person.species = 'Homo sapiens';
 class Teacher extends Person {
     constructor(name, age, _subject) {
         super(name, age); // 継承元のconstructorに相当するsuperが必要
@@ -35,7 +41,5 @@ class Teacher extends Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
     }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
-teacher.subject = 'Music';
-console.log(teacher.subject);
-teacher.greeting();
+console.log(Person.species);
+console.log(Person.isAdult(38));

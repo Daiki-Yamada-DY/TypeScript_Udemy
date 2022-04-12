@@ -1,4 +1,9 @@
 class Person {
+    static species = 'Homo sapiens';
+    static isAdult(age: number) {
+        if (age > 17) return true;
+        return false;
+    }
     // readonly修飾子を使用した場合class内外関係なくプロパティを書き換えることができない。
     constructor(public name: string, protected age: number) {
     }
@@ -32,7 +37,5 @@ class Teacher extends Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
     }
 }
-const teacher = new Teacher('Quill', 38, 'Math');
-teacher.subject = 'Music';
-console.log(teacher.subject);
-teacher.greeting();
+console.log(Person.species);
+console.log(Person.isAdult(38));
