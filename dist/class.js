@@ -13,6 +13,15 @@ class Person {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`); // バッククォートに注意
     }
 }
-const quill = new Person('Quill', 38);
-quill.incrementAge();
-quill.greeting();
+class Teacher extends Person {
+    constructor(name, age, subject) {
+        super(name, age); // 継承元のconstructorに相当するsuperが必要
+        this.subject = subject;
+    }
+    // greetingメソッド
+    greeting() {
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
+    }
+}
+const teacher = new Teacher('Quill', 38, 'Math');
+teacher.greeting();

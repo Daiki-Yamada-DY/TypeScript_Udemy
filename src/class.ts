@@ -1,15 +1,24 @@
 class Person {
     // readonly修飾子を使用した場合class内外関係なくプロパティを書き換えることができない。
-    constructor(public readonly name: string, private age: number) {
+    constructor(public name: string, protected age: number) {
     }
     incrementAge() {
         this.age += 1;
     }
     // greetingメソッド
-    greeting() {
+    greeting(this: Person) {
         console.log(`Hello! My name is ${this.name}. I am ${this.age} years old.`); // バッククォートに注意
     }
 }
-const quill = new Person('Quill', 38);
-quill.incrementAge();
-quill.greeting();
+
+class Teacher extends Person {
+    constructor(name: string, age: number, public subject: string) {
+        super(name, age); // 継承元のconstructorに相当するsuperが必要
+    }
+    // greetingメソッド
+    greeting() {
+        console.log(`Hello! My name is ${this.name}. I am ${this.age} years old. I teach ${this.subject}`); // バッククォートに注意
+    }
+}
+const teacher = new Teacher('Quill', 38, 'Math');
+teacher.greeting();
