@@ -30,7 +30,12 @@ function toUpperCase(x: string | number) {
     // xが数値の場合の処理
     return x;
 }
-const upperHello = toUpperCase('hello');
+interface TmpFunc {
+    // 関数型のオーバーロードはinterfaceで定義する必要がある
+    (x: string): number;
+    (x: number): number;
+}
+const upperHello: TmpFunc = function (x: string | number) { return 0 };
 
 type NomadWorker = Engineer | Blogger;
 function describeProfile(nomadWorker: NomadWorker) {

@@ -13,7 +13,7 @@ function toUpperCase(x) {
     // xが数値の場合の処理
     return x;
 }
-const upperHello = toUpperCase('hello');
+const upperHello = function (x) { return 0; };
 function describeProfile(nomadWorker) {
     console.log(nomadWorker.name);
     if ('role' in nomadWorker) {
