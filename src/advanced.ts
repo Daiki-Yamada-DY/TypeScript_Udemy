@@ -123,3 +123,8 @@ const downloadedData: DownloadedData = {
 }
 // Optional Chaining
 console.log(downloadedData.user?.name?.first);
+
+// レストパラメータ
+function advancedFn(...args: [number, string, boolean?, ...number[]]) {
+}
+advancedFn(0, 'hi', true);

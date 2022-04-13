@@ -67,3 +67,7 @@ const downloadedData = {
 };
 // Optional Chaining
 console.log((_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first);
+// レストパラメータ
+function advancedFn(...args) {
+}
+advancedFn(0, 'hi', true);
