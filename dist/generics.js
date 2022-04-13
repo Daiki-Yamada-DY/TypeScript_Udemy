@@ -1,6 +1,6 @@
+"use strict";
 // 型パラメータに制約を設ける場合
-function copy<T extends { name: string }>(value: T): T {
+function copy(value) {
     return value;
 }
 console.log(copy({ name: 'Quill' }));
-
