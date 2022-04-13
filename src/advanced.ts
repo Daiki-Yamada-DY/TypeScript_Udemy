@@ -18,13 +18,18 @@ const quill: EngineerBlogger = {
     follower: 1000
 }
 
+// 関数のオーバーロード
+function toUpperCase(x: string): string;
+function toUpperCase(x: number): number;
 function toUpperCase(x: string | number) {
     // xが文字列の場合の処理
     if (typeof x === 'string') {
         return x.toUpperCase();
     }
-    return '';
+    // xが数値の場合の処理
+    return x;
 }
+const upperHello = toUpperCase('hello');
 
 type NomadWorker = Engineer | Blogger;
 function describeProfile(nomadWorker: NomadWorker) {
