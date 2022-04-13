@@ -128,3 +128,10 @@ console.log(downloadedData.user?.name?.first);
 function advancedFn(...args: [number, string, boolean?, ...number[]]) {
 }
 advancedFn(0, 'hi', true);
+
+// 型の中でtypeofを使用して値の型を取得する
+const peter = {
+    name: 'Peter',
+    age: 38
+}
+type PeterType = typeof peter;

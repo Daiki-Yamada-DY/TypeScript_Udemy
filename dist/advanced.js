@@ -71,3 +71,8 @@ console.log((_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 
 function advancedFn(...args) {
 }
 advancedFn(0, 'hi', true);
+// 型の中でtypeofを使用して値の型を取得する
+const peter = {
+    name: 'Peter',
+    age: 38
+};
