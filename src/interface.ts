@@ -1,4 +1,19 @@
-interface Human  {
+// typeエイリアスで関数の型を定義する場合
+// type addFunc = (num1: number, num2: number) => number;
+
+// interfaceで関数の型を定義する場合
+interface addFunc {
+    (num1: number, num2: number): number;
+}
+let addFunc: addFunc;
+addFunc = (n1: number, n2: number) => {
+    return n1 + n2;
+}
+
+interface Nameable {
+    name: string;
+}
+interface Human extends Nameable {
     name: string;
     age: number;
     greeting(message: string): void; 
