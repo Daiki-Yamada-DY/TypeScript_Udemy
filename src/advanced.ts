@@ -17,3 +17,11 @@ const quill: EngineerBlogger = {
     role: 'front-end',
     follower: 1000
 }
+
+function toUpperCase(x: string | number) {
+    // xが文字列の場合の処理
+    if (typeof x === 'string') {
+        return x.toUpperCase();
+    }
+    return '';
+}
