@@ -5,6 +5,10 @@ let addFunc;
 addFunc = (n1, n2) => {
     return n1 + n2;
 };
+const nameable = {
+    name: 'Quill',
+    nickName: 'Quilla'
+};
 class Developer {
     constructor(name, age, experience) {
         this.name = name;

@@ -12,7 +12,14 @@ addFunc = (n1: number, n2: number) => {
 
 interface Nameable {
     name: string;
+    nickName?: string;
 }
+
+const nameable: Nameable = {
+    name: 'Quill',
+    nickName: 'Quilla'
+}
+
 interface Human extends Nameable {
     name: string;
     age: number;
