@@ -68,3 +68,13 @@ havePet(new Bird());
 // 型アサーション
 const input = document.getElementById('input') as HTMLInputElement;
 input.value = 'initial input value';
+
+// indexシグネチャ
+interface Designer {
+    name: string;
+    [index: string]: string;
+}
+const designer: Designer = {
+    name: 'Quill',
+    role: 'web'
+}
