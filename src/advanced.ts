@@ -21,6 +21,7 @@ const quill: EngineerBlogger = {
 // 関数のオーバーロード
 function toUpperCase(x: string): string;
 function toUpperCase(x: number): number;
+
 function toUpperCase(x: string | number) {
     // xが文字列の場合の処理
     if (typeof x === 'string') {
@@ -83,3 +84,17 @@ const designer: Designer = {
     name: 'Quill',
     role: 'web'
 }
+interface DownloadedData {
+    id: number;
+    user?: {
+        name?: {
+            first: string;
+            last: string;    
+        }
+    }
+}
+const downloadedData: DownloadedData = {
+    id: 1
+}
+// Optional Chaining
+console.log(downloadedData.user?.name?.first);
